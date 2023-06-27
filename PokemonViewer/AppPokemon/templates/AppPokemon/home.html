@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'AppPokemon/css/bootstrap.min.css'%}" rel="stylesheet"/>
+    <link href="{% static 'AppPokemon/css/styles.css'%}" rel="stylesheet"/>
+    <title>Home|AppPokemon</title>
+</head>
+<body>
+
+    <!-- Navigation-->
+    <nav class="navbar navbar-light bg-light static-top">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'Home' %}">Home</a>
+            <a class="btn btn-primary" href="{% url 'Pokedex' %}">Pokedex</a>
+            <a class="btn btn-primary" href="{% url 'atraparPokemon' %}">Atrapar Pokemon</a>
+            <a class="btn btn-primary" href="{% url 'consultarEquipo' %}">Consultar Equipo</a>
+        </div>
+    </nav>
+
+   
+    <div class="contenido">
+        {% block contenidoQueCambia %}
+
+        <h2>Bienvenido/a a tu pokedex digital</h5>
+        <p>Aquí podrás utilizar la pokedex, capturar pokemones, y consultar tu equipo actual.</p>
+
+        {% endblock %}
+    </div>
+
+</body>
+</html>

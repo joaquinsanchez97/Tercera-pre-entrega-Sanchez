@@ -1,0 +1,19 @@
+<div>
+    {% extends "AppPokemon/home.html" %}
+    {% load static %}
+
+        {% block contenidoQueCambia %}
+        
+          <div class="formatraparPokemon">
+            {% block atraparPokemon %}
+            {% endblock %}
+          </div>
+
+          <div class="formconsultarEquipo">
+            {% block consultarEquipo %}
+            {% endblock %}
+          </div>
+          
+        {% endblock %}
+
+</div>

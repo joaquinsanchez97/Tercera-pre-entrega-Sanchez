@@ -1,0 +1,58 @@
+<div>
+    {% extends "AppPokemon/home.html" %}
+    {% load static %}
+
+        {% block contenidoQueCambia %}
+        
+        <head>
+          <link href="{% static 'AppPokemon/css/styles.css' %}" rel="stylesheet">
+        </head>
+
+        <h2>Pokedex</h5> 
+          <!-- Inserting the main image -->
+          <img src="{% static 'AppPokemon/img/pokedex-image.png' %}" class="image" style="width:100px;">
+          
+          <form method="post" action="/AppPokemon/pokedex/">
+              <!-- Cross-site request forgery Protection-->
+              {% csrf_token %}
+              
+              <!-- Searchbar -->
+              <input type="text" name="pokemon" placeholder="Busca tu Pokemon...">
+              <button type="submit">Buscar</button>
+          </form>
+          <div>
+              <!-- Rendering everything requested to the API -->
+              <!-- First we validate the data requested -->
+              {% if number and name %}
+                  <h3>
+                      Número: {{number}}
+                  </h3>
+                  <h3>
+                      Nombre: {{name}}
+                  </h3>
+                  <h3>
+                      Altura: {{height}}
+                  </h3>
+                  <h3>
+                      Peso: {{weight}}
+                  </h3>
+                  <h3>
+                      Tipo: {{types}}
+                  </h3>
+                  <h3>
+                      Imagen: 
+                  </h3>
+                  <img src="{{sprite}}" alt="{{name}} sprite" style="width:100px">
+              {% else %}
+              <div>
+                  <h3>
+                      Escribe el nombre o ID de tu pokemon.
+                  </h3>
+              </div>
+              {% endif %}
+          </div>
+          
+
+        {% endblock %}
+
+</div>

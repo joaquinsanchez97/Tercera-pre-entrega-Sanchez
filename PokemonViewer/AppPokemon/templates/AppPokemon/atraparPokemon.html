@@ -1,0 +1,25 @@
+<div>
+    {% extends "AppPokemon/pokemones.html" %}
+    {% load static %}
+
+        {% block atraparPokemon %}
+        
+        <head>
+          <link href="{% static 'AppPokemon/css/styles.css' %}" rel="stylesheet">
+        </head>
+
+          <h2>Atrapar Pokemon</h5>
+          
+          <form action="/AppPokemon/atraparPokemon/" method="POST"> {% csrf_token %}
+          
+            <table>
+              {{ miFormulario.as_table }}
+            </table>
+          
+            <input type="submit" value="Enviar">
+          
+          </form>
+
+        {% endblock %}
+
+</div>

@@ -1,0 +1,22 @@
+<div>
+    {% extends "AppPokemon/pokemones.html" %}
+    {% load static %}
+
+    {% block consultarEquipo %}
+        <h2>Consultar Equipo</h5>
+        <form action="/AppPokemon/getEquipo" method="GET">
+            <input placeholder="Nombre" type="text" name="nombre" id="nombre"> 
+            <input type="submit" value="Buscar">
+        </form>
+
+        {% if pokemones %}
+            {% for pokemon in pokemones %}
+                <li> <strong>Nivel:</strong> {{ pokemon.nivel }}</li>
+                <li> <strong>Nombre:</strong> {{ pokemon.nombre }}</li>
+                <li> <strong>Mote:</strong> {{ pokemon.mote }}</li>
+            {% endfor %}
+        {% endif %}
+
+    {% endblock %}
+
+</div>
